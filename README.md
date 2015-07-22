@@ -4,7 +4,7 @@ Wakanda Export Module
 ## Example
 ```javascript
 // csv string
-require('exports').csv({
+var csv = require('exports').csv({
     class: 'Employee'
 });
 ```
