@@ -25,18 +25,20 @@ var csv = function(options) {
 			}
 		}
 		// add header line
-		csv += myAttributes.join(';') + '\r\n'; 
+		csv += myAttributes.join(';');
         // add datasets
         myCollection.forEach(function(item) {
+        	// new line
+            csv += '\r\n';
+            // loop attributes
             for (var i = 0; i < myAttributes.length; i++) {
-                csv += item[myAttributes[i]];
+            	// add content if not null
+                csv += item[myAttributes[i]] ? item[myAttributes[i]] : '';
                 // skip for last element
                 if (i !== myAttributes.length -1) {
 	                csv += ';';
                 }
-            };
-            // new line
-            csv += '\r\n';            
+            };         
         });
         
         if (options.file) {
